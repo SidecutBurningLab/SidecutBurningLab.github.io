@@ -205,14 +205,14 @@ const SERVICE_DISPLAY_UNIT = {
 };
 // 可以看到名額的時間
 const SERVICE_VISIBLE_TS = {
-    "團體課": SEASON_BEGIN.getTime() - 7 * DAY_TS,
-    "私人課": SEASON_BEGIN.getTime() - 7 * DAY_TS,
+    "團體課": new Date( new Date().getFullYear(), new Date().getMonth(), new Date().getDate() ).getTime(),
+    "私人課": new Date( new Date().getFullYear(), new Date().getMonth(), new Date().getDate() ).getTime(),
     "包團服務": new Date( new Date().getFullYear(), new Date().getMonth(), new Date().getDate() ).getTime()
 }
 // 服務開放的時間
 const SERVICE_OPEN_TS = {
-    "團體課": SEASON_BEGIN.getTime(),
-    "私人課": SEASON_BEGIN.getTime(),
+    "團體課": new Date( 2024, 0, 1 ).getTime(),
+    "私人課": new Date( 2024, 0, 1 ).getTime(),
     "包團服務": new Date( 2024, 0, 1 ).getTime()
 }
 const FORCE_ALL_SERVICE_VISIBLE = false;   // 要看私人/團體課請在calendar.html中自行改成true.
