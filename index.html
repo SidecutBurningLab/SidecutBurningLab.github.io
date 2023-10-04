@@ -307,6 +307,9 @@ const FORCE_ALL_SERVICE_VISIBLE = false;   // 要看私人/團體課請在calend
                         }
                     }
                     calendarDays.appendChild(dayDiv);
+                    dayDiv.onclick = () => {
+                        window.open("https://www.sidecutburninglab.net/reservation", "_blank");
+                    }
                 }
             }
 
