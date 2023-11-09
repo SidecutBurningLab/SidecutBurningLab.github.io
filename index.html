@@ -12,11 +12,11 @@
             /* height: 100vh; */
             display: grid;
             place-items: center;
-            background-color: rgb(26, 26, 26);
+            background-color: rgb(28, 28, 28);
         }
 
         .calendar {
-            height: 1300px;
+            height: 900px;
             width: 940px;
             background-color: rgb(116, 116, 116);
             border-radius: 30px;
@@ -81,7 +81,7 @@
 
         .calendar-days div {
             /* width: 70px; */
-            height: 190px;
+            height: 120px;
             text-align: center;
             /* display: flex; */
             /* align-items: center; */
@@ -268,7 +268,7 @@ const FORCE_ALL_SERVICE_VISIBLE = false;   // 要看私人/團體課請在calend
                     if ( day >= 1 ) {
                         dayDiv.innerHTML = day;
                         if ( dayTs > SEASON_BEGIN.getTime() - DAY_TS && dayTs <= SEASON_END.getTime() ) {
-                            let servicesTypes = ["包團服務","私人課","團體課"];
+                            let servicesTypes = ["包團服務"];
                             let titleStrings = ["<font color='dddddd'>包團名額: </font><br>","<font color='dddddd'>私人課名額:</font><br>","<font color='dddddd'>團體課名額:</font><br>"];
                             let displayResult = ["", "", ""];
                             let isFull = true;
@@ -300,6 +300,12 @@ const FORCE_ALL_SERVICE_VISIBLE = false;   // 要看私人/團體課請在calend
                                 dayDiv.innerHTML += "<div class=\"calendar-full\">" + "<br>額滿";
                             } else {
                                 dayDiv.innerHTML += "<div class=\"calendar-content\">" + displayResult[0] + displayResult[1] + displayResult[2];
+                                dayDiv.onclick = () => {
+                                    let yearStr = year.toString();
+                                    let monthStr = (month+1).toString().padStart(2, '0');
+                                    let dayStr = day.toString().padStart(2, '0');
+                                    window.open("https://docs.google.com/forms/d/e/1FAIpQLSfOTOvwOUQ41DTmzosQ_DRgC-fx3pFscSFCfNExuo74bR_7Tw/viewform?entry.1649485374=" + yearStr + "-" + monthStr + "-" + dayStr, "_blank");
+                                }
                             }
                         }
                         if (day === currDate.getDate() && year === currDate.getFullYear() && month === currDate.getMonth()) {
@@ -307,9 +313,6 @@ const FORCE_ALL_SERVICE_VISIBLE = false;   // 要看私人/團體課請在calend
                         }
                     }
                     calendarDays.appendChild(dayDiv);
-                    dayDiv.onclick = () => {
-                        window.open("https://www.sidecutburninglab.net/reservation", "_blank");
-                    }
                 }
             }
 
