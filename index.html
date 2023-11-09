@@ -269,8 +269,8 @@ const FORCE_ALL_SERVICE_VISIBLE = false;   // 要看私人/團體課請在calend
                         dayDiv.innerHTML = day;
                         if ( dayTs > SEASON_BEGIN.getTime() - DAY_TS && dayTs <= SEASON_END.getTime() ) {
                             let servicesTypes = ["包團服務"];
-                            let titleStrings = ["<font color='dddddd'>包團名額: </font><br>","<font color='dddddd'>私人課名額:</font><br>","<font color='dddddd'>團體課名額:</font><br>"];
-                            let displayResult = ["", "", ""];
+                            let titleStrings = ["<font color='dddddd'>包團名額: </font><br>"];
+                            let displayResult = [""];
                             let isFull = true;
                             for ( let j = 0; j < servicesTypes.length; j++ ) {
                                 let servicesType = servicesTypes[j];
@@ -299,7 +299,7 @@ const FORCE_ALL_SERVICE_VISIBLE = false;   // 要看私人/團體課請在calend
                             if ( isFull ) {
                                 dayDiv.innerHTML += "<div class=\"calendar-full\">" + "<br>額滿";
                             } else {
-                                dayDiv.innerHTML += "<div class=\"calendar-content\">" + displayResult[0] + displayResult[1] + displayResult[2];
+                                dayDiv.innerHTML += "<div class=\"calendar-content\">" + displayResult[0];
                                 dayDiv.onclick = () => {
                                     let yearStr = year.toString();
                                     let monthStr = (month+1).toString().padStart(2, '0');
