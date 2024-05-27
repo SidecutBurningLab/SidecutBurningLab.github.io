@@ -202,7 +202,7 @@ const MIN_DISPLAY_NUM = {
 const SERVICE_DISPLAY_UNIT = {
     "團體課": "人",
     "私人課": "班",
-    "包團服務": "人"
+    "包團服務": "團"
 };
 // 可以看到名額的時間
 const SERVICE_VISIBLE_TS = {
@@ -287,13 +287,13 @@ const FORCE_ALL_SERVICE_VISIBLE = false;   // 要看私人/團體課請在calend
                                 if ( available["ski"] >= MIN_DISPLAY_NUM[servicesType] || available["snowboard"] >= MIN_DISPLAY_NUM[servicesType] ) {
                                     displayResult[j] = titleStrings[j];
                                     if ( available["ski"] !== 0 ) {
-                                        displayResult[j] += "Ski: " + available["ski"] + SERVICE_DISPLAY_UNIT[servicesType];
+                                        displayResult[j] += "Ski: " + available["ski"] / 5 + SERVICE_DISPLAY_UNIT[servicesType];
                                     }
                                     if ( available["snowboard"] !== 0 ) {
                                         if ( available["ski"] !== 0 ) {
                                             displayResult[j] += "<br>";
                                         }
-                                        displayResult[j] += "Snowboard: " + available["snowboard"] + SERVICE_DISPLAY_UNIT[servicesType];
+                                        displayResult[j] += "Snowboard: " + available["snowboard"] / 5 + SERVICE_DISPLAY_UNIT[servicesType];
                                     }
                                     displayResult[j] += "<br>"
                                     isFull = false;
