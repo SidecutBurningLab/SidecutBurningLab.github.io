@@ -317,11 +317,11 @@
                                 let available = dayData[servicesType] ? dayData[servicesType] : { "ski": 0, "snowboard":0 };
                                 if ( available["ski"] >= MIN_DISPLAY_NUM[servicesType] || available["snowboard"] >= MIN_DISPLAY_NUM[servicesType] ) {
                                     displayResult[j] = titleStrings[j];
-                                    if ( /*available["ski"] !== 0*/false ) {
+                                    if ( available["ski"] !== 0 ) {
                                         displayResult[j] += "Ski: " + available["ski"] + SERVICE_DISPLAY_UNIT[servicesType];
                                     }
                                     if ( available["snowboard"] !== 0 ) {
-                                        if ( /*available["ski"] !== 0*/false ) {
+                                        if ( available["ski"] !== 0 ) {
                                             displayResult[j] += "<br>";
                                         }
                                         displayResult[j] += "Snowboard: " + available["snowboard"] + SERVICE_DISPLAY_UNIT[servicesType];
